@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=7yuv
+Comment=Datahammer 7yuv YUV Viewer, Raw Bayer/RGB Viewer, YUV Editor, and Hex Editor.
+Exec=7yuv
+Terminal=false
+Type=Application
+Icon=${SNAP}/meta/gui/snap-7yuv.png
+Categories=Development;Image;Qt;
+StartupNotify=true

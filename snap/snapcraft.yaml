@@ -1,0 +1,95 @@
+name: 7yuv # you probably want to 'snapcraft register <name>'
+base: core18 # the base snap is the execution environment for this snap
+version: '0.1'
+summary: Datahammer 7yuv YUV Viewer, Raw Bayer/RGB Viewer, YUV Editor
+description: |
+  Description: Datahammer 7yuv YUV Viewer, RGB Viewer,
+  and Hex Editor 7yuv is is a tool for editing and visualizing raw graphics data and binary files.
+  It assists in development of games, video codecs, and general graphics programming.
+
+
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+icon: gui/snap-7yuv.png
+#layout:
+#  /usr/bin/7yuv:
+#    bind: $SNAP/opt/Datahammer_7yuv/7yuv
+parts:
+  7yuv:
+    # See 'snapcraft plugins'
+    plugin: dump
+    source: 7yuv-2.5_x64_pre_build/
+      #    after: [desktop-ubuntu-app-platform]
+#    override-build: |
+#      echo "override build"
+#    override-stage: |
+#      echo "override stage"
+#    stage:
+#      - 7yuv
+#    stage-snaps:
+#      - libqtcore4
+#      - libqtgui4
+    stage-packages:
+      - libqtcore4
+      - libqtgui4
+      - libstdc++6
+      - libqt4-opengl
+      - libalglib3.11
+      - libgcc1
+      - libgl1
+      - libgl1-mesa-glx
+      - libgl2ps1.4
+      - libglu1
+      - libglu1-mesa
+      - libgsl23
+      - libgslcblas0
+      - libmuparser2v5
+      - libqt4-network
+      - libqt4-qt3support
+      - libqt4-svg
+      - libqt4-xml
+      - libqtassistantclient4
+      - libqtexengine1
+      - libtamuanova-0.2
+      - zlib1g
+      - sip-api-12.3
+
+apps:
+  7yuv:
+    command: opt/Datahammer_7yuv/7yuv
+    extensions: [gnome-3-28]
+    plugs:
+      - x11
+      - network
+      - network-bind
+      - home
+      - desktop
+      - desktop-legacy
+      - wayland
+      - unity7
+      - gsettings
+      - network-manager
+      - config-7yuv
+    slots:
+      - dbus-daemon
+    common-id: de.datahammer.7yuv
+
+
+#layout:
+#  /usr/bin/7yuv:
+#    bind: $SNAP/opt/Datahammer_7yuv/7yuv
+
+
+slots:
+  dbus-daemon:
+    interface: dbus
+    bus: session
+    name: de.datahammer.7yuv
+
+plugs:
+  config-7yuv:
+    interface: system-files
+    read:
+      - /
+    write:
+      - /
