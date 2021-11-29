@@ -80,16 +80,8 @@ apps:
 #    bind: $SNAP/opt/Datahammer_7yuv/7yuv
 
 
-slots:
-  dbus-daemon:
-    interface: dbus
-    bus: session
-    name: de.datahammer.7yuv
-
-plugs:
-  config-7yuv:
-    interface: system-files
-    read:
-      - /
-    write:
-      - /
+#slots:
+#  dbus-daemon:
+#    interface: dbus
+#    bus: session
+#    name: de.datahammer.7yuv
