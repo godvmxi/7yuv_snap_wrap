@@ -18,8 +18,8 @@ jobs:
       - name: Build Snap package
         run: |
           #snap install lxd
-          cd snap
           sg lxd -c 'snapcraft --use-lxd'
+          ls -lah
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
