@@ -1,4 +1,4 @@
-name: My workflow
+name: Publish snap binnary package
 
 on: push
 
@@ -15,4 +15,4 @@ jobs:
 
       # You can now run Snapcraft shell commands
       - name: Use Snapcraft
-        run: snapcraft --help
+        run: snapcraft --debug
