@@ -9,7 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
+    - name: Check out Git repository
+      uses: actions/checkout@v2
     - name: Install Snapcraft
       uses: samuelmeuli/action-snapcraft@v1
     - name: Build Snap package
