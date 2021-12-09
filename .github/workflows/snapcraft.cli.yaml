@@ -2,8 +2,8 @@ name: Publish Release
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - "v*"
 
 jobs:
   build_7yuv_snap:
@@ -27,5 +27,4 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            *.yaml
             *.snap
