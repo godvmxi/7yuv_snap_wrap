@@ -1,0 +1,19 @@
+name: Publish Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@master
+    - name: Install Snapcraft
+      uses: samuelmeuli/action-snapcraft@v1
+    - name: Build Snap package
+      run: snapcraft --debug
