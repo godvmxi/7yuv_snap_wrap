@@ -9,9 +9,12 @@ jobs:
   build_7yuv_snap:
     runs-on: ubuntu-18.04
     steps:
-    - name: Check out Git repository
-      uses: actions/checkout@v2
-    - name: Install Snapcraft
-      uses: samuelmeuli/action-snapcraft@v1
-    - name: Build Snap package
-      run: cd snap;snapcraft --debug --use-lxd
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+      - name: Install Snapcraft
+        uses: samuelmeuli/action-snapcraft@v1
+      - name: Build Snap package
+        run: |
+          snap install lxd
+          cd snap
+          snapcraft --debug --use-lxd
